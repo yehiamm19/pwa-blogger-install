@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>تثبيت الموقع كتطبيق</title>
+    <meta
+      name="description"
+      content="إرشادات بسيطة وواضحة لتثبيت الموقع كتطبيق على الشاشة الرئيسية حسب جهازك ومتصفحك."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script>
+      // Allow page only inside an iframe (client-side guard).
+      // Note: If JavaScript is disabled, this cannot be enforced on static hosting.
+      (function () {
+        const root = document.documentElement;
+        root.classList.add('js');
+        try {
+          const inFrame = window.self !== window.top;
+          root.classList.add(inFrame ? 'in-frame' : 'not-in-frame');
+        } catch (e) {
+          // If we can't access top (edge cases), assume we're in a frame.
+          root.classList.add('in-frame');
+        }
+      })();
+    </script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="frameOnly" role="alert" aria-live="assertive">
+      <div class="frameOnlyCard">
+        <div class="frameOnlyIcon" aria-hidden="true"><i class="ri-shield-keyhole-line" aria-hidden="true"></i></div>
+        <h1>آسف، ولكن هذا ليس طريقي</h1>
+        <p>هذا المحتوى متاح فقط داخل <b>iframe</b> داخل مواقعك.</p>
+      </div>
+    </div>
+    <noscript>
+      <div class="frameOnly" style="display:grid">
+        <div class="frameOnlyCard">
+          <div class="frameOnlyIcon" aria-hidden="true"><i class="ri-shield-keyhole-line" aria-hidden="true"></i></div>
+          <h1>آسف، ولكن هذا ليس طريقي</h1>
+          <p>لازم تفعيل JavaScript علشان يشتغل هذا المحتوى داخل <b>iframe</b>.</p>
+        </div>
+      </div>
+    </noscript>
+    <main class="app" aria-label="صفحة إرشادات تثبيت التطبيق">
+      <header class="top">
+        <div class="brandRow">
+          <div class="brand">
+            <div class="logo" aria-hidden="true">
+              <i class="ri-install-line" aria-hidden="true"></i>
+            </div>
+            <div class="brandText">
+              <h1>ثبت تطبيقنا الان</h1>
+              <p>اختر جهازك ومتصفحك… واتبع الخطوات البسيطة - وثبت الموقع كتطبيق</p>
+            </div>
+          </div>
+
+          <div class="language-container" aria-label="اختيار اللغة">
+            <button class="lang-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+              اللغة - Language
+              <i class="ri-arrow-down-s-line chev" aria-hidden="true"></i>
+            </button>
+            <ul class="language-list" role="listbox" aria-label="اللغة">
+              <li role="option" data-lang="ar" aria-selected="true">عربي</li>
+              <li role="option" data-lang="en" aria-selected="false">English</li>
+            </ul>
+            <div class="gTranslate" style="display: none;">
+              <div id="google_translate_element"></div>
+              <small class="gtHint">Powered by Google Translate</small>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <section class="card">
+        <div class="tabs" role="tablist" aria-label="أنواع الأجهزة والمتصفحات">
+          <button
+            class="tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-android-chrome"
+            id="tab-android-chrome"
+            data-tab="android-chrome"
+          >
+            <span class="tabIcon" aria-hidden="true">
+              <i class="ri-android-line" aria-hidden="true"></i>
+            </span>
+            <span class="tabTitle">أندرويد</span>
+            <span class="tabMeta">Chrome</span>
+          </button>
+
+          <button
+            class="tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-iphone-safari"
+            id="tab-iphone-safari"
+            data-tab="iphone-safari"
+          >
+            <span class="tabIcon" aria-hidden="true">
+              <i class="ri-smartphone-line" aria-hidden="true"></i>
+            </span>
+            <span class="tabTitle">آيفون</span>
+            <span class="tabMeta">Safari</span>
+          </button>
+
+          <button
+            class="tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-windows-chrome"
+            id="tab-windows-chrome"
+            data-tab="windows-chrome"
+          >
+            <span class="tabIcon" aria-hidden="true">
+              <i class="ri-windows-line" aria-hidden="true"></i>
+            </span>
+            <span class="tabTitle">ويندوز</span>
+            <span class="tabMeta">Chrome / Edge</span>
+          </button>
+
+          <button
+            class="tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-mac"
+            id="tab-mac"
+            data-tab="mac"
+          >
+            <span class="tabIcon" aria-hidden="true">
+              <i class="ri-apple-line" aria-hidden="true"></i>
+            </span>
+            <span class="tabTitle">ماك</span>
+            <span class="tabMeta">Safari / Chrome</span>
+          </button>
+        </div>
+
+        <div class="panels">
+          <section
+            class="panel"
+            role="tabpanel"
+            tabindex="0"
+            aria-labelledby="tab-android-chrome"
+            id="panel-android-chrome"
+            data-panel="android-chrome"
+          >
+            <h2>أندرويد — Google Chrome</h2>
+            <ol class="steps">
+              <li>
+                افتح الموقع في <b>Chrome</b>.
+                <span class="hint">مهم: الصفحة الرئيسية اللي هي رابط الموقع الاساسي اللي عايز تثبته مفتوح <b>وتكون فاتح من المتصفح الاساسي كروم او فايرفوكس..... وليس من متصفح داخل تطبيقات السوشيال</b></span>
+              </li>
+              <li>اضغط زر <b>القائمة ⋮</b> أعلى المتصفح.</li>
+              <li>اختار <b>إضافة إلى الشاشة الرئيسية</b> أو <b>Install app</b>.</li>
+              <li>أكد الاسم واضغط <b>إضافة / Install</b>.</li>
+              <li>وانتظر ثواني وسوف يثبت التطبيق ويظهر في التطبيقات والشاشة الرئيسية - <b>ملحوظة الرجاء الغاء خيار قفل تخطيط الشاشة الرئيسية عند التثبيت لكل يثبت التطبيق ويظهر ويعمل بطريقة صحيحة</b></li>
+              <li>شرح بسيط لتثبيت تطبيقنا في اندرويد من متصفح كروم:
+                <img src="./imgs/android/step1.jpg" alt="Android Chrome Install">
+                <img src="./imgs/android/step2.jpg" alt="Android Chrome Install">
+                <img src="./imgs/android/step3.jpg" alt="Android Chrome Install">
+              </li>
+            </ol>
+            <div class="note">
+              <div class="noteIcon" aria-hidden="true"><i class="ri-information-line" aria-hidden="true"></i></div>
+              <div class="noteText">
+                لو ما ظهرتش “Install”: جرّب تحديث الصفحة، أو افتحها من نفس الدومين (بدون
+                متصفح داخل تطبيقات السوشيال).
+              </div>
+            </div>
+          </section>
+
+          <section
+            class="panel"
+            role="tabpanel"
+            tabindex="0"
+            aria-labelledby="tab-iphone-safari"
+            id="panel-iphone-safari"
+            data-panel="iphone-safari"
+          >
+            <h2>آيفون — Safari</h2>
+            <ol class="steps">
+              <li>افتح الموقع في <b>Safari</b> (مش كروم).</li>
+              <li>اضغط زر <b>المشاركة</b> (مربع وسهم ↑) أسفل/أعلى الشاشة.</li>
+              <li>انزل و اختار <b>إضافة إلى الشاشة الرئيسية</b>.</li>
+              <li>أكد الاسم واضغط <b>إضافة</b>.</li>
+              <li>شرح بسيط لتثبيت تطبيقنا في الايفون من متصفح سفاري:
+              <img src="./imgs/iphone install.png" alt="iOS Safari Install">
+            </li>
+            </ol>
+            <div class="note">
+              <div class="noteIcon" aria-hidden="true"><i class="ri-information-line" aria-hidden="true"></i></div>
+              <div class="noteText">
+                لو خيار “إضافة إلى الشاشة الرئيسية” مش ظاهر: تأكد إنك فاتح من Safari
+                مباشرة، ومش من متصفح داخل تطبيق.
+              </div>
+            </div>
+          </section>
+
+          <section
+            class="panel"
+            role="tabpanel"
+            tabindex="0"
+            aria-labelledby="tab-windows-chrome"
+            id="panel-windows-chrome"
+            data-panel="windows-chrome"
+          >
+            <h2>كمبيوتر ويندوز — Chrome / Edge</h2>
+            <ol class="steps">
+              <li>افتح الموقع في <b>Chrome</b> أو <b>Edge</b>.</li>
+              <li>
+                من شريط العنوان:
+                <ul class="substeps">
+                  <li>افتح القائمة العلوية بجانب زر الهوم اللي فوق او اضغط على الثلاث نقط/خطوط "⋮ / ..." وانزل بالقائمة لخيار <b>المزيد من الادوات</b> واضغط على خيار <b>التطبيقات</b> اضغط على <b>تثبيت الموقع كتطبيق</b> وهكذا قمت بتثبيت تطبيقنا</li>
+                </ul>
+              </li>
+              <li>
+                شرح بسيط لتثبيت تطبيقنا في ويندوز:
+                <img src="./imgs/win install.png" alt="Windows Chrome/Edge Install">
+              </li>
+            </ol>
+            <div class="note">
+              <div class="noteIcon" aria-hidden="true"><i class="ri-information-line" aria-hidden="true"></i></div>
+              <div class="noteText">
+                لو مفيش زر تثبيت: غالبًا الموقع مش مفعّل كـ PWA بالكامل (Manifest + Service
+                Worker + HTTPS).
+              </div>
+            </div>
+          </section>
+
+          <section
+            class="panel"
+            role="tabpanel"
+            tabindex="0"
+            aria-labelledby="tab-mac"
+            id="panel-mac"
+            data-panel="mac"
+          >
+            <h2>ماك — Safari / Chrome</h2>
+            <div class="split">
+              <div class="splitCol">
+                <h3>Safari</h3>
+                <ol class="steps">
+                  <li>افتح الموقع في <b>Safari</b>.</li>
+                  <li>من القائمة: <b>File</b> ثم <b>Add to Dock</b> (إن كانت متاحة).</li>
+                  <li>أكد الاسم واضغط <b>Add</b>.</li>
+                </ol>
+              </div>
+              <div class="splitCol">
+                <h3>Chrome</h3>
+                <ol class="steps">
+                  <li>افتح الموقع في <b>Chrome</b>.</li>
+                  <li>من القائمة ⋮ اختر <b>Install app</b>.</li>
+                  <li>اضغط <b>Install</b>.</li>
+                </ol>
+              </div>
+            </div>
+            <div class="note">
+              <div class="noteIcon" aria-hidden="true"><i class="ri-information-line" aria-hidden="true"></i></div>
+              <div class="noteText">
+                اختلاف الخيارات على الماك بيكون حسب إصدار macOS وSafari/Chrome.
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footerRow">
+          <span class="pill" id="detectedPill" aria-live="polite">جاري التعرف على جهازك…</span>
+        </div>
+      </footer>
+    </main>
+
+    <script src="./script.js"></script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  </body>
+</html>
+
+
